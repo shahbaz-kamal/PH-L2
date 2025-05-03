@@ -1,3 +1,3 @@
 "use strict";
-var course = "net-level";
+let course = "net-level";
 console.log(course);
