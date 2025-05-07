@@ -39,6 +39,25 @@
   };
   const dog = new Dog("dog", 20);
   const cat = new Cat("cat", 2);
+  const normalAnimal = new Animal("Normal", 6);
   // console.log({ cat });
   getAnimal(cat);
+  //*we can use function to handle it smartly
+
+  const isDog = (animal: Animal): animal is Dog => {
+    return animal instanceof Dog;
+  };
+  const isCat = (animal: Animal): animal is Cat => {
+    return animal instanceof Cat;
+  };
+  const getAnimal2 = (animal: Animal) => {
+    if (isDog(animal)) {
+      animal.makeBark();
+    } else if (isCat(animal)) {
+      animal.makeMeow();
+    } else {
+      animal.makeSound();
+    }
+  };
+  getAnimal2(cat);
 }
