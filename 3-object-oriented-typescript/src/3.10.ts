@@ -1,0 +1,4 @@
+{
+    // ?Learned in 3.4 and 3.5
+    //// Encapsulation in Object-Oriented Programming (OOP), especially in TypeScript, is the concept of wrapping data (properties) and methods (functions) inside a class so that they are protected from direct access or modification from outside the class. It helps to hide the internal details of how an object works and only exposes what’s necessary through public methods. This improves code security and reduces complexity by controlling how data is accessed or changed. In TypeScript, this is done using access modifiers like public, private, and protected, where private prevents access from outside the class, and public allows it. Encapsulation is key to maintaining clean, reliable, and modular code in OOP.
+}
