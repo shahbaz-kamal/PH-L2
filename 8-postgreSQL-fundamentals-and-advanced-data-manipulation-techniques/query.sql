@@ -19,3 +19,8 @@ alter table person2
     alter COLUMN user_age set not null;
 alter table person2
     alter COLUMN user_age drop not null;
+ALTER Table person2
+    add constraint unique_person2_user_age UNIQUE(user_age)
+
+ALTER Table person2
+    drop constraint unique_person2_user_age
