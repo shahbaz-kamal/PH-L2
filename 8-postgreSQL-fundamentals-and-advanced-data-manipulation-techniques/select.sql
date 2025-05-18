@@ -142,3 +142,7 @@ select * from student ORDER BY student_id asc limit 5 OFFSET  5*2
 DELETE from student
 where grade='C' AND country='USA' ;
 SELECT * from  student
+
+UPDATE student
+    SET email='a@b.com'
+    where student_id=8
