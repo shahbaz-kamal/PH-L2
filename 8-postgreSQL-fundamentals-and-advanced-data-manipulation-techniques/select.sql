@@ -98,3 +98,13 @@ where (country='USA' OR country='Australia') AND age=20
 
 select * FROM student 
     where age>=20 AND course='Biology'
+
+
+SELECT upper(first_name), * from student;
+select concat(first_name,' ',last_name) as "Full Name" from student
+
+SELECT length(first_name) from student
+
+SELECT max(age) from student
+
+SELECT max(length(first_name)) from student
