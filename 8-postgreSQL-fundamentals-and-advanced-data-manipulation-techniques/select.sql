@@ -132,3 +132,13 @@ select * from student
 
 select * from student
     where first_name LIKE '__a%'
+
+select * from student ORDER BY student_id asc limit 5 OFFSET  5*0
+
+select * from student ORDER BY student_id asc limit 5 OFFSET  5*1
+
+select * from student ORDER BY student_id asc limit 5 OFFSET  5*2
+
+DELETE from student
+where grade='C' AND country='USA' ;
+SELECT * from  student
