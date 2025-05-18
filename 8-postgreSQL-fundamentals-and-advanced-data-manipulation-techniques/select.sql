@@ -108,3 +108,11 @@ SELECT length(first_name) from student
 SELECT max(age) from student
 
 SELECT max(length(first_name)) from student
+
+SELECT * from student
+    where NOT country='USA'
+
+SELECT * from student 
+    where email IS NULL
+
+select COALESCE(email, 'Email Not PRovided') from student
