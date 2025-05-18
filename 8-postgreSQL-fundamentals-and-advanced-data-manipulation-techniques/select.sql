@@ -116,3 +116,19 @@ SELECT * from student
     where email IS NULL
 
 select COALESCE(email, 'Email Not PRovided') from student
+
+
+select * from student
+    WHERE country IN('USA','UK','Canada') 
+
+select * from student
+    WHERE country NOT IN('USA','UK','Canada') 
+
+select * from student
+    where age BETWEEN 20 and 22
+
+select * from student
+    WHERE dob BETWEEN '2003-01-01' and '2005-01-01'
+
+select * from student
+    where first_name LIKE '__a%'
