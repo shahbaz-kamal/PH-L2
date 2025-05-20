@@ -24,4 +24,4 @@ SELECT * , age(CURRENT_DATE,dob) from student
 
 select extract(year from '2025-05-19'::date)
 
-select 'n'::BOOLEAN
+select 'n'::BOOLEAN;
