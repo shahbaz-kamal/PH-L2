@@ -50,6 +50,23 @@ INSERT INTO employee (employee_name, designation, department_id, salary, hire_da
 SELECT * from employee e
     JOIN department d ON e.department_id=d.id
 
+-- showing dept. name with avg. salary
 select dept_name, round(avg(salary)) as avg_salary from department d
     JOIN employee e ON d.id=e.department_id
     GROUP BY dept_name     
+
+--counting employees with each department
+
+select dept_name,count(*) from department
+    JOIN employee on employee.department_id=department.id
+    GROUP BY dept_name 
+
+SELECT dept_name,round(avg(salary)) as avg_salary  from department d
+    JOIN employee e on e.department_id=d.id
+    GROUP BY dept_name
+    ORDER BY avg_salary DESC
+    LIMIT 1
+
+SELECT extract(year FROM hire_date) as hire_year,count(*) from employee e
+    JOIN department d ON e.department_id=d.id
+    GROUP BY hire_year
