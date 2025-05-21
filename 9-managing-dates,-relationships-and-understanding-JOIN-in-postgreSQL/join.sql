@@ -38,4 +38,17 @@ drop table "user"
 DROP table post
 
 SELECT * FROM post p
-    JOIN "user" on p.user_id="user".id
+    JOIN "user" u on p.user_id=u.id
+
+INSERT INTO post (title,posted_date,user_id) VALUES 
+   (
+    'hello','2025-5-8',NULL
+   )
+   
+   SELECT * FROM post     
+   left JOIN "user" on post.user_id="user".id
+
+SELECT * from post   
+   right JOIN "user" on post.user_id="user".id
+
+SELECT * from post
