@@ -41,5 +41,5 @@ DROP table post
 
 SELECT * from "user"
 
-SELECT *,name from post
+SELECT *  from post
     
