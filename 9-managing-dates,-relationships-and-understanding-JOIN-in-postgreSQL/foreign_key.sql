@@ -43,3 +43,47 @@ SELECT * from "user"
 
 SELECT *  from post
     
+-- deleting constraint
+-- RESTRICT DELETION -> ON DELETE RESTRICT / ON DELETE NO ACTION (default)
+DELETE FROM "user"  
+    WHERE id=4
+
+-- Cascading -> ON DELETE CASCADE
+create Table post (
+    id SERIAL PRIMARY KEY,
+    title text NOT NULL,
+    posted_date DATE NOT NULL,
+    user_id Int REFERENCES "user"(id) ON DELETE CASCADE
+)
+
+DELETE FROM "user"
+    WHERE id=4
+-- setting null -> ON DELETE SET NULL
+
+create Table post (
+    id SERIAL PRIMARY KEY,
+    title text NOT NULL,
+    posted_date DATE NOT NULL,
+    user_id Int REFERENCES "user"(id) ON DELETE SET NULL
+)
+
+select * from post
+
+DELETE from "user"
+    where id=1
+
+--Set Default Value -> ON DELETE SET DEFAULT
+
+create Table post (
+    id SERIAL PRIMARY KEY,
+    title text NOT NULL,
+    posted_date DATE NOT NULL,
+    user_id Int REFERENCES "user"(id) ON DELETE SET DEFAULT DEFAULT 2
+)
+
+select * from post
+
+SELECT * from "user"
+
+DELETE from "user"
+    where id=1
