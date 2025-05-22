@@ -70,3 +70,7 @@ SELECT dept_name,round(avg(salary)) as avg_salary  from department d
 SELECT extract(year FROM hire_date) as hire_year,count(*) from employee e
     JOIN department d ON e.department_id=d.id
     GROUP BY hire_year
+    
+SELECT extract(year FROM hire_date) as hire_year,count(*) from employee e
+    JOIN department d ON e.department_id=d.id
+    GROUP BY hire_year
