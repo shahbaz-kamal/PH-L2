@@ -31,3 +31,14 @@ select emp_count()
 SELECT delete_emp()
 
 select delete_by_params(29)
+
+CREATE Procedure remove_emp()
+LANGUAGE plpgsql
+AS
+$$
+    BEGIN
+     DELETE from employee WHERE employee_id=28;
+    END
+$$
+
+CALL remove_emp()
