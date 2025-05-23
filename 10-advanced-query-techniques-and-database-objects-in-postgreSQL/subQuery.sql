@@ -47,8 +47,19 @@ INSERT INTO employee (employee_name, department_name, salary, hire_date) VALUES
 --//select * from employee where salary>56000
 select max(salary) from employee where department_name='HR'
 
-select * from employee where salary>(select max(salary) from employee where department_name='HR')
+select * from employee
+ where 
+ salary>(select max(salary) from employee where department_name='HR') --
 
 --single value(1 row,1column)
 --can return multiple row
 --can return a single column
+
+select *, (select sum(salary) from employee) from employee
+
+
+select department_name,sum(salary)  from employee
+    GROUP BY department_name
+
+select * --outer query
+from (select department_name,sum(salary)  from employee GROUP BY department_name)  --sub query
