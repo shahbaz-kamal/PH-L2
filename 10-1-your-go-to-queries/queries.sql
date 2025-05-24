@@ -32,3 +32,7 @@ SELECT * from books LIMIT 10
 SELECT * FROM books LIMIT 10 OFFSET 10
 
 -- //UPDATE Operator
+
+SELECT * from books
+
+UPDATE books SET price=price*1.1;
