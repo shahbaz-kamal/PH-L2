@@ -30,3 +30,5 @@ SELECT * FROM books WHERE author IN ('Colleen Hoover','George Orwell ')
 SELECT * from books LIMIT 10
 
 SELECT * FROM books LIMIT 10 OFFSET 10
+
+-- //UPDATE Operator
