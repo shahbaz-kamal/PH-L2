@@ -7,3 +7,9 @@ ALTER Table books RENAME COLUMN author_name to author
 SELECT * from books
 
 SELECT * from books where author='George Orwell'
+
+SELECT title, LENGTH(title) from ;
+
+SELECT avg(price) from books
+
+SELECT MAX(Price),min(price) from books
