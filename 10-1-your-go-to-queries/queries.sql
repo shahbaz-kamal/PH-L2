@@ -44,3 +44,5 @@ SELECT * FROM books
 SELECT author,COUNT(*) FROM books GROUP BY author
 
 SELECT author,count(*) FROM books GROUP BY author HAVING count(*)>2
+
+-- // Foreighn key deletion
