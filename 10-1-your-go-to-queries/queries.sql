@@ -25,3 +25,8 @@ SELECT * FROM books WHERE author LIKE '%Orwell'
 SELECT * FROM books WHERE title ILIKE 'the%'
 
 SELECT * FROM books WHERE author IN ('Colleen Hoover','George Orwell ')
+-- //pagination with LIMIT AND OFFSET
+
+SELECT * from books LIMIT 10
+
+SELECT * FROM books LIMIT 10 OFFSET 10
