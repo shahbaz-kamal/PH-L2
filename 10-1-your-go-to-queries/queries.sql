@@ -41,6 +41,8 @@ UPDATE books SET price=price*1.1;
 
 SELECT * FROM books
 
+SELECT * FROM books
+
 SELECT author,COUNT(*) FROM books GROUP BY author
 
 SELECT author,count(*) FROM books GROUP BY author HAVING count(*)>2
