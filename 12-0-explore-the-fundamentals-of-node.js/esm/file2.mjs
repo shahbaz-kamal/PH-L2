@@ -4,6 +4,8 @@ const add = (param1, param2) => {
   return param1 + param2;
 };
 
-export  {add,a,b};
+export  {a,b};
+
+export default add
 
 // console.log(module);
