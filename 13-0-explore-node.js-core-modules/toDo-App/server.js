@@ -6,7 +6,10 @@ const server = http.createServer((req, res) => {
   //   res.end("Welcome to ToDo App");
 
   if (req.url === "/todos" && req.method === "GET") {
-    res.end("ToDO got");
+    res.writeHead(200, {
+      "content-type": "text/plain",
+    });
+    res.end("hello Todos");
   } else if (req.url === "/todos/create-todo" && req.method === "POST") {
     res.end("ToDo created");
   } else {
