@@ -1,15 +1,22 @@
 const http = require("http");
 const path = require("path");
 const fs = require("fs");
+const { url } = require("inspector");
 const port = 5000;
 
 const filePath = path.join(__dirname, "./db/todo.json");
 
 const server = http.createServer((req, res) => {
-  //   console.log( req.url, req.method );
+    // console.log( req.url, req.method );
   //   res.end("Welcome to ToDo App");
+  const url=new URL(req.url,`http://${req.headers.host}`)
+  const pathname=url.pathname
+console.log(url.pathname)
+
+  // console.log(`The requested urll is ${req.url}`)
+  // console.log(`The HTTP URL IS ${req.headers.host}`)
   const data = fs.readFileSync(filePath, { encoding: "utf-8" });
-  if (req.url === "/todos" && req.method === "GET") {
+  if (pathname === "/todos" && req.method === "GET") {
     res.writeHead(200, {
       "content-type": "application/json",
     });
@@ -19,7 +26,7 @@ const server = http.createServer((req, res) => {
     res.end(data);
   }
   // createing todo
-  else if (req.url === "/todos/create-todo" && req.method === "POST") {
+  else if (pathname === "/todos/create-todo" && req.method === "POST") {
     let data = "";
     req.on("data", (chunk) => {
       data = data + chunk;
@@ -39,7 +46,17 @@ const server = http.createServer((req, res) => {
       res.end(JSON.stringify({ title, body, createdAt },null,2));
     });
     // const allTodos = fs.readFileSync(filePath, { encoding: "utf-8" });
-  } else {
+  } 
+else if(pathname==="/todo" && req.method==="GET"){
+const title=url.searchParams.get("title")
+console.log(title)
+const data = fs.readFileSync(filePath, { encoding: "utf-8" });
+const parsedData=JSON.parse(data)
+const todo=parsedData.find(todo=>todo.title===title)
+const stringifiedTodo=JSON.stringify(todo)
+  res.end(stringifiedTodo)
+}  
+  else {
     res.end("Route NOT Found");
   }
 });
