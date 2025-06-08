@@ -3,7 +3,7 @@ import fs from "fs";
 import path from "path";
 
 const app: Application = express();
-
+const todosRouter = express.Router();
 app.use(express.json());
 
 const filePath = path.join(__dirname, "../db/todo.json");

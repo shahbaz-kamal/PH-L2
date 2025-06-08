@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const app = (0, express_1.default)();
+const todosRouter = express_1.default.Router();
 app.use(express_1.default.json());
 const filePath = path_1.default.join(__dirname, "../db/todo.json");
 app.get("/", (req, res) => {
