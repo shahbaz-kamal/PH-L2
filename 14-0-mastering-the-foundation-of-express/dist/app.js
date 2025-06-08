@@ -14,8 +14,9 @@ app.get("/", (req, res) => {
 });
 app.get("/todos", (req, res) => {
     const data = fs_1.default.readFileSync(filePath, { encoding: "utf-8" });
-    console.log(data);
-    res.json(data);
+    console.log(req.query);
+    // res.json(data);
+    res.send("query recieved");
 });
 app.post("/todos/create-todo", (req, res) => {
     const { title, body } = req.body;
