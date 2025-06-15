@@ -16,23 +16,20 @@ todosRouter.get("/", (req: Request, res: Response) => {
 
 todosRouter.post("/create-todo", async (req: Request, res: Response) => {
   console.log(req.body);
-const newTodo={
+  const newTodo = {
     title: req.body.title,
     description: req.body.description,
     priority: req.body.priority,
     isCompleted: req.body.isCompleted,
     createdAt: new Date().toLocaleDateString(),
-  
   };
- 
+
   const result = await todoCollection.insertOne(req.body);
   res.send(result);
 });
 
-todosRouter.get("/:title", (req: Request, res: Response) => {
-  const { title, body } = req.body;
-  console.log(title, body);
-  res.send({ message: "todo created", title, body });
+todosRouter.get("/:id", (req: Request, res: Response) => {
+  const id = req.params.id;
 });
 
 todosRouter.put("/updated-todo/:title", (req: Request, res: Response) => {

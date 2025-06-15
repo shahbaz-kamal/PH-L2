@@ -38,10 +38,8 @@ exports.todosRouter.post("/create-todo", (req, res) => __awaiter(void 0, void 0,
     const result = yield clientDB_1.todoCollection.insertOne(req.body);
     res.send(result);
 }));
-exports.todosRouter.get("/:title", (req, res) => {
-    const { title, body } = req.body;
-    console.log(title, body);
-    res.send({ message: "todo created", title, body });
+exports.todosRouter.get("/:id", (req, res) => {
+    const id = req.params.id;
 });
 exports.todosRouter.put("/updated-todo/:title", (req, res) => {
     const { title, body } = req.body;
