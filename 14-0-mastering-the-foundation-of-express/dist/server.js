@@ -13,10 +13,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const app_1 = __importDefault(require("./app"));
+const clientDB_1 = require("./app/utils/clientDB");
 const port = 5000;
 const bootstrap = () => __awaiter(void 0, void 0, void 0, function* () {
-    const server = app_1.default.listen(port, () => {
+    yield (0, clientDB_1.connectDB)();
+    app_1.default.listen(port, () => {
         console.log(`✅ Todo server is running on port ${port}`);
+        console.log(`✅ Connected to MONGODB`);
     });
 });
 bootstrap();
