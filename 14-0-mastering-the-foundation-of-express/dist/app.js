@@ -10,6 +10,14 @@ const app = (0, express_1.default)();
 const todosRouter = express_1.default.Router();
 app.use(express_1.default.json());
 const filePath = path_1.default.join(__dirname, "../db/todo.json");
+console.log(filePath);
+app.use("/todos", todosRouter);
+todosRouter.get("/alltodos", (req, res) => {
+    const data = fs_1.default.readFileSync(filePath, { encoding: "utf-8" });
+    console.log(req.query);
+    // res.json(data);
+    res.send("todos router");
+});
 app.get("/", (req, res) => {
     res.send("To do app is running asdfadfg");
 });
