@@ -102,3 +102,5 @@ const rangers= [
     isActive: true,
   },
 ];
+
+console.log(rangers.length)

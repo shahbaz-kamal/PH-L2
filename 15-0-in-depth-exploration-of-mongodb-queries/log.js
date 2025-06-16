@@ -1,0 +1,1 @@
+//watched lecture 15-3: learned about $eq,$neq,$gt,$it,$gte,$lte
