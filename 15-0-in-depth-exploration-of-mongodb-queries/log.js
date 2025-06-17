@@ -6,3 +6,4 @@
 // watched lecture 15-8: learned about $Set,$AddToSet,$push
 //watched lecture 15-9: learned about $pop,$pull,$pullall
 //watched lecture 15-10: learned about $set,$inc
+//watched lecture 15-11: practised about delete,deleteOne
