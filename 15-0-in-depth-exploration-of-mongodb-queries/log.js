@@ -5,3 +5,4 @@
 //watched lecture 15-7: learned about $ALL,$elemMatch
 // watched lecture 15-8: learned about $Set,$AddToSet,$push
 //watched lecture 15-9: learned about $pop,$pull,$pullall
+//watched lecture 15-10: learned about $set,$inc
