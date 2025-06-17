@@ -7,3 +7,4 @@
 //watched lecture 15-9: learned about $pop,$pull,$pullall
 //watched lecture 15-10: learned about $set,$inc
 //watched lecture 15-11: practised about delete,deleteOne
+//practised task 1: Find all documents in the collection where the age is greater than 30, and only return the name and email fields.
