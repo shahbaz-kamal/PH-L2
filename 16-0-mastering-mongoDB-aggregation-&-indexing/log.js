@@ -6,3 +6,4 @@
 // watched 16-5: Learned about the $unwind stage
 // watched 16-6: Learned about the $bucket stage
 // watched 16-7: Learned about the $pipeline stage
+// watched 16-8: Learned about the $lookup stage (referencing documents)
