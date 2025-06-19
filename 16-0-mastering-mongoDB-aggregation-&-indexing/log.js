@@ -2,3 +2,4 @@
 // watched 15-1: Learned about the $match stage and $project stage
 // watched 15-2: Learned about the $AddFields. $out and $Merge stage
 // watched 15-3: Learned about the $group stage
+// watched 15-4: Learned about the $sum,$min, $max, $avg,$substract and $push operators
