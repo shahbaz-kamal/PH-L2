@@ -11,3 +11,12 @@
 // watched 18-2: Implemented custom validation in th project using mongoose
 // watched 18-3: Implemented custom validation using zod
 // watched 18-4: Implemented empbedded documents in the project using mongoose
+// watched 18-5: Implemented embedding and referencing in the project using mongoose
+// watched 18-6: learned about instance methods and static methods in mongoose
+// watched 18-7: Implemented hash methods for encrypting passwords using bcrypt
+// watched 18-8: Implemented static method in the project using mongoose and typescript
+// watched 18-9: Implemented document middleware in the project using mongoose and typescript
+
+//watched 18-10: Implemented query middleware in the project using mongoose and typescript
+// watched 18-11: Learned about virtual in mongoose
+// watched 18-12: learned about sort,filter,skip and limit in mongoose
