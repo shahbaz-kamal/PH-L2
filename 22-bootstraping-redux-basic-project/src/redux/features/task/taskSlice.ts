@@ -10,12 +10,20 @@ interface InitialState {
 const initialState: InitialState = {
   tasks: [
     {
-      id: "aads",
+      id: "aadas",
       title: "Initialize",
       description: "create homepage and Routing",
       dueDate: "2025-11",
       isCompleted: false,
       priority: "high",
+    },
+    {
+      id: "aads",
+      title: "Initialize github",
+      description: "create homepage and Routing",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "low",
     },
   ],
   filter: "all",
