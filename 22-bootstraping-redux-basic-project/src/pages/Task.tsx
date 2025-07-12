@@ -2,6 +2,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import AddTaskModal from "@/module/tasks/AddTaskModal";
 import TaskCard from "@/module/tasks/TaskCard";
 import { useGetTasksQuery } from "@/redux/api/baseApi";
+import type { ITask } from "@/types";
 
 const Task = () => {
   const { data, isLoading, isError } = useGetTasksQuery(undefined);
@@ -25,7 +26,7 @@ const Task = () => {
       </div>
       <div className="space-y-5 mt-5">
         {!isLoading &&
-          data.tasks.map((task) => (
+          data.tasks.map((task: ITask) => (
             <TaskCard key={task.id} task={task}></TaskCard>
           ))}
       </div>
