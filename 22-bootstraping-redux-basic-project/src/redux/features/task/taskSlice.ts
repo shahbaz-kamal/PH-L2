@@ -77,6 +77,7 @@ export const selectTask = (state: RootState) => {
 export const selectFilter = (state: RootState) => {
   return state.todo.filter;
 };
+console.log(selectFilter)
 
 export const { addTask, toggleCompleteState, deleteTask, updateFilter } =
   taskSlice.actions;
