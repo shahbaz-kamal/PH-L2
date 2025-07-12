@@ -9,18 +9,18 @@ interface InitialState {
 
 const initialState: InitialState = {
   tasks: [
-    // {
-    //   id: "aadas",
-    //   title: "Initialize",
-    //   description: "create homepage and Routing",
-    //   dueDate: "2025-11",
-    //   isCompleted: false,
-    //   priority: "high",
-    // },
+    {
+      id: "aadas",
+      title: "Initialize",
+      description: "create homepage and Routing",
+      dueDate: "2025-11",
+      isCompleted: false,
+      priority: "high",
+    },
     // {
     //   id: "aads",
     //   title: "Initialize github",
-    //   description: "create homepage and Routing",
+    //   description: "create homepage an d Routing",
     //   dueDate: "2025-11",
     //   isCompleted: false,
     //   priority: "low",
@@ -43,6 +43,18 @@ const taskSlice = createSlice({
       const taskData = createTask(action.payload);
       state.tasks.push(taskData);
     },
+    toggleCompleteState: (state, action: PayloadAction<string>) => {
+      console.log(action);
+      state.tasks.forEach((task) =>
+        task.id === action.payload
+          ? (task.isCompleted = !task.isCompleted)
+          : task
+      );
+      console.log(action);
+    },
+    deleteTask: (state, action: PayloadAction<string>) => {
+      state.tasks = state.tasks.filter((task) => task.id !== action.payload);
+    },
   },
 });
 
@@ -53,6 +65,6 @@ export const selectFilter = (state: RootState) => {
   return state.todo.filter;
 };
 
-export const { addTask } = taskSlice.actions;
+export const { addTask, toggleCompleteState ,deleteTask} = taskSlice.actions;
 
 export default taskSlice.reducer;
