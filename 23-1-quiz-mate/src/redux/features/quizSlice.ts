@@ -12,6 +12,7 @@ export interface QuizState {
   questions: QuizData[];
   currentQuestionIndex: 0;
   userAnswer: string[] | null;
+  isQuizComplete: boolean;
 }
 
 // Define the initial state using that type
@@ -19,6 +20,7 @@ const initialState: QuizState = {
   questions: quizData,
   currentQuestionIndex: 0,
   userAnswer: Array(quizData.length).fill(null),
+  isQuizComplete: false,
 };
 
 export const quizSlice = createSlice({
@@ -30,6 +32,20 @@ export const quizSlice = createSlice({
       const { questionIndex, answer } = action.payload;
       state.userAnswer[questionIndex] = answer;
     },
+    nextQuestion: (state) => {
+      if (state.currentQuestionIndex < state.questions.length - 1) {
+        state.currentQuestionIndex += 1;
+      }
+    },
+    previousQuestion: (state) => {
+      if (state.currentQuestionIndex > 0) {
+        state.currentQuestionIndex -= 1;
+        state.isQuizComplete = false;
+      }
+    },
+    isQuizComplete: (state) => {
+      state.isQuizComplete = true;
+    },
   },
 });
 
@@ -38,4 +54,6 @@ export const quizSlice = createSlice({
 // Other code such as selectors can use the imported `RootState` type
 // export const selectCount = (state: RootState) => state.quiz.value;
 
+export const { setAnswer, nextQuestion, previousQuestion, isQuizComplete } =
+  quizSlice.actions;
 export default quizSlice.reducer;
