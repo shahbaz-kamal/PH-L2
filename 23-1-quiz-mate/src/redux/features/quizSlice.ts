@@ -1,6 +1,5 @@
+import { quizData } from "./../../pages/Home/quizData";
 import { createSlice } from "@reduxjs/toolkit";
-import type { RootState } from "../store";
-import { quizData } from "@/pages/Home/quizData";
 
 export interface QuizData {
   id: number;
@@ -11,18 +10,27 @@ export interface QuizData {
 // Define a type for the slice state
 export interface QuizState {
   questions: QuizData[];
+  currentQuestionIndex: 0;
+  userAnswer: string[] | null;
 }
 
 // Define the initial state using that type
 const initialState: QuizState = {
-    questions: quizData,
+  questions: quizData,
+  currentQuestionIndex: 0,
+  userAnswer: Array(quizData.length).fill(null),
 };
 
 export const quizSlice = createSlice({
   name: "quiz",
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
-  reducers: {},
+  reducers: {
+    setAnswer: (state, action) => {
+      const { questionIndex, answer } = action.payload;
+      state.userAnswer[questionIndex] = answer;
+    },
+  },
 });
 
 // export const {  } = counterSlice.actions
