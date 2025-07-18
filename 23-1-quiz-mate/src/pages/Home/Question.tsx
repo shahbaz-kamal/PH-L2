@@ -12,7 +12,7 @@ const Question = () => {
   const dispatch = useAppDispatch();
   const question = questions[currentQuestionIndex];
   const currentAnswer = userAnswer[currentQuestionIndex];
-  console.log(currentAnswer)
+  console.log(currentAnswer,question)
 
   const handleAnswer = (answer: string) => {
     dispatch(
