@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const quizApi = createApi({
   reducerPath: "quizApi",
@@ -6,7 +6,7 @@ export const quizApi = createApi({
     baseUrl: "http://localhost:5000/api",
   }),
   tagTypes: ["quiz"],
-  endpoints: (builder) => {
+  endpoints: (builder) => ({
     addQuiz: builder.mutation({
       query: (newQuiz) => ({
         url: "/quizzes",
@@ -14,6 +14,13 @@ export const quizApi = createApi({
         body: newQuiz,
       }),
       invalidatesTags: ["quiz"],
-    });
-  },
+    }),
+
+    getAllQuiz: builder.query({
+      query: () => "/quizzes",
+      providesTags: ["quiz"],
+    }),
+  }),
 });
+
+export const { useAddQuizMutation, useGetAllQuizQuery } = quizApi;

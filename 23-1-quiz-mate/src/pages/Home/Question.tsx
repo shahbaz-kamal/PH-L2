@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import QuizControll from "./QuizControll";
 import { setAnswer } from "@/redux/features/quizSlice";
+import AddQuiz from "./AddQuiz";
 
 const Question = () => {
   const { questions, currentQuestionIndex, userAnswer } = useAppSelector(
@@ -12,7 +13,6 @@ const Question = () => {
   const dispatch = useAppDispatch();
   const question = questions[currentQuestionIndex];
   const currentAnswer = userAnswer[currentQuestionIndex];
-
 
   const handleAnswer = (answer: string) => {
     dispatch(
@@ -24,6 +24,7 @@ const Question = () => {
   };
   return (
     <div className="container mx-auto">
+      <AddQuiz></AddQuiz>
       <div className="text-center my-4">
         <h3 className="text-green-500 text-5xl underline">
           Questions(total-{questions.length})
