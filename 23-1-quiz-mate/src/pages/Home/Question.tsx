@@ -4,6 +4,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import QuizControll from "./QuizControll";
 import { setAnswer } from "@/redux/features/quizSlice";
 import AddQuiz from "./AddQuiz";
+import AllQuiz from "./AllQuiz";
 
 const Question = () => {
   const { questions, currentQuestionIndex, userAnswer } = useAppSelector(
@@ -25,6 +26,7 @@ const Question = () => {
   return (
     <div className="container mx-auto">
       <AddQuiz></AddQuiz>
+      <AllQuiz></AllQuiz>
       <div className="text-center my-4">
         <h3 className="text-green-500 text-5xl underline">
           Questions(total-{questions.length})

@@ -83,10 +83,10 @@ export default function AddQuiz() {
   const nextStep = () => setStep((prev) => prev + 1);
   const prevStep = () => setStep((prev) => prev - 1);
 
-  const handleSubmit =async () => {
-    const res=await addQuiz(quizData)
+  const handleSubmit = async () => {
+    const res = await addQuiz(quizData);
     console.log(res);
-    toast("data has been saved")
+    toast("quiz added successfully");
   };
 
   return (
