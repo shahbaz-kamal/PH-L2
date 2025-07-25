@@ -1,11 +1,13 @@
 import "./App.css";
 import { Button } from "./components/ui/button";
+import Count from "./count/Count";
 
 function App() {
   return (
-    <>
-      <Button>Add Me</Button>
-    </>
+    <div className="flex flex-col items-center justify-center space-x-2">
+      <Count></Count>
+      <Count></Count>
+    </div>
   );
 }
 
