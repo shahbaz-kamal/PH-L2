@@ -4,13 +4,20 @@ export interface CounterSlice {
   id: number;
   count: number;
 }
-const initialState: CounterSlice[] = [
-  { id: 1, count: 0 },
-  { id: 2, count: 2 },
-];
+const initialState = {
+  value: 0,
+};
 
 export const counterSlice = createSlice({
   name: "counter",
   initialState,
-  reducers: {},
+  reducers: {
+    increment:state=>{
+      state.value +=1
+    }
+  },
 });
+
+export const {increment}=counterSlice.actions
+
+
