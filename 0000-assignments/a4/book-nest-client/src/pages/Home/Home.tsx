@@ -1,11 +1,24 @@
-
+import LoadingComponent from "../../components/Shared/LoadingComponent/LoadingComponent";
+import { useGetAllBookQuery } from "../../redux/api/bookApi";
+import Hero from "./Hero";
+import OurBooks from "./OurBooks";
 
 const Home = () => {
-    return (
-        <div>
-            I am Home
+  const { isLoading } = useGetAllBookQuery(undefined);
+  if (isLoading) return <LoadingComponent></LoadingComponent>;
+  return (
+    <div className="space-y-4 md:space-y-5">
+      <title>Home || BookNest</title>
+      <section className="hero bg-light-background/55 dark:bg-dark-background/80 py-20">
+        <div className="w-11/12 md:w-10/12 mx-auto">
+          <Hero></Hero>
         </div>
-    );
+      </section>
+      <section>
+        <OurBooks></OurBooks>
+      </section>
+    </div>
+  );
 };
 
 export default Home;
