@@ -1,0 +1,3 @@
+[submodule "25-0-tour-management-system"]
+	path = 25-0-tour-management-system
+	url = https://github.com/shahbaz-kamal/vivid-voyages-server.git
