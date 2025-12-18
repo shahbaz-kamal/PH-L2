@@ -58,7 +58,20 @@ select distinct chestpaintype from heart
 
 select * from heart where country='Bangladesh' and age>40
 
--- COPY heart
--- FROM '../heart.csv'
--- DELIMITER ','
--- CSV HEADER;
+select * from heart where country='Bangladesh' or country='USA'
+
+
+select id,age,chestpaintype,country from heart
+ where (chestpaintype='ATA' or  chestpaintype='NAP' ) and (country='Bangladesh' or country='USA')
+
+select  distinct age from heart order by age desc 
+
+
+select id,age from heart where age between 40 and 50
+
+select * from heart 
+where country ='Bangladesh'
+or country ='India'
+or country ='USA'
+
+select * from heart where country in ('Bangladesh','USA','India')
