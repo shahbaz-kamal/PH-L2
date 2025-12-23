@@ -1,0 +1,84 @@
+{
+    "products":[
+  {
+    "id": 1,
+    "product_name": "AirFlex Wireless Headphones",
+    "brand": "SoundMax",
+    "category": "Electronics",
+    "price": 89.99,
+    "image": "https://images.pexels.com/photos/3394656/pexels-photo-3394656.jpeg"
+  },
+  {
+    "id": 2,
+    "product_name": "ProVision Smart Watch",
+    "brand": "TimeTech",
+    "category": "Wearables",
+    "price": 129.99,
+    "image": "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg"
+  },
+  {
+    "id": 3,
+    "product_name": "UltraSlim Laptop Stand",
+    "brand": "DeskPro",
+    "category": "Accessories",
+    "price": 34.5,
+    "image": "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg"
+  },
+  {
+    "id": 4,
+    "product_name": "GlowBeam Desk Lamp",
+    "brand": "Brightify",
+    "category": "Home & Office",
+    "price": 45.0,
+    "image": "https://images.pexels.com/photos/1112598/pexels-photo-1112598.jpeg"
+  },
+  {
+    "id": 5,
+    "product_name": "EcoBrew Coffee Maker",
+    "brand": "BrewMaster",
+    "category": "Home Appliances",
+    "price": 149.99,
+    "image": "https://images.pexels.com/photos/585753/pexels-photo-585753.jpeg"
+  },
+  {
+    "id": 6,
+    "product_name": "SnapShot DSLR Camera",
+    "brand": "Photonix",
+    "category": "Photography",
+    "price": 549.0,
+    "image": "https://images.pexels.com/photos/51383/photo-camera-subject-photographer-51383.jpeg"
+  },
+  {
+    "id": 7,
+    "product_name": "PureTone Bluetooth Speaker",
+    "brand": "WaveSound",
+    "category": "Electronics",
+    "price": 59.99,
+    "image": "https://images.pexels.com/photos/63703/pexels-photo-63703.jpeg"
+  },
+  {
+    "id": 8,
+    "product_name": "FlexFit Running Shoes",
+    "brand": "RunNova",
+    "category": "Footwear",
+    "price": 99.5,
+    "image": "https://images.pexels.com/photos/2529148/pexels-photo-2529148.jpeg"
+  },
+  {
+    "id": 9,
+    "product_name": "SmartHome Voice Assistant",
+    "brand": "HomeIQ",
+    "category": "Smart Home",
+    "price": 79.99,
+    "image": "https://images.pexels.com/photos/4790269/pexels-photo-4790269.jpeg"
+  },
+  {
+    "id": 10,
+    "product_name": "ZenTouch Mechanical Keyboard",
+    "brand": "KeyCraft",
+    "category": "Computer Accessories",
+    "price": 119.0,
+    "image": "https://images.pexels.com/photos/2115217/pexels-photo-2115217.jpeg"
+  }
+]
+}
