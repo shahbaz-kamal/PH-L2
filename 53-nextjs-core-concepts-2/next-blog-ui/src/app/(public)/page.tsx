@@ -6,7 +6,7 @@ import { IPost } from "@/types";
 export default async function HomePage() {
   const res = await fetch(`${envVars.BASE_URL}/post`, {
     next: {
-      revalidate: 30,
+tags:["POSTS"]
     },
   });
   const { data: posts } = (await res.json()) as { data: IPost[] };

@@ -1,6 +1,12 @@
 import BlogCard from "@/components/modules/Blogs/BlogCard";
 import { envVars } from "@/config/env";
 import { IPost } from "@/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Blogs | Next Blogs",
+  description: "Hello",
+};
 
 const AllBlogsPage = async () => {
   const res = await fetch(`${envVars.BASE_URL}/post`, {

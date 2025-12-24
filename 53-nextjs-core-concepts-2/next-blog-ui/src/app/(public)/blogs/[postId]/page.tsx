@@ -1,6 +1,7 @@
 import BlogDetailsCard from "@/components/modules/Blogs/BlogDetailsCard";
 import { envVars } from "@/config/env";
 import { IPost } from "@/types";
+import { title } from "process";
 import React from "react";
 
 export const generateStaticParams = async () => {
@@ -10,6 +11,18 @@ export const generateStaticParams = async () => {
   return posts.slice(0, 2).map((post) => ({
     postId: String(post.id),
   }));
+};
+
+export const generateMetadata = async ({
+  params,
+}: {
+  params: Promise<{ postId: string }>;
+}) => {
+  const { postId } = await params;
+  const res = await fetch(`${envVars.BASE_URL}/post/${postId}`);
+  const post = (await res.json()) as IPost;
+
+  return { title: post?.title };
 };
 
 const BlogDetailsPage = async ({
