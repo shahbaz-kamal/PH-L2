@@ -20,6 +20,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { loginSchema } from "@/lib/validators/auth";
+import { login } from "@/actions/auth";
+import { toast } from "sonner";
 
 type LoginFormValues = z.infer<typeof loginSchema>;
 
@@ -32,9 +34,19 @@ export default function LoginPage() {
     },
   });
 
-  function onSubmit(values: LoginFormValues) {
+  const onSubmit = async (values: LoginFormValues) => {
     console.log(values);
-  }
+    const toastId = toast.loading("Logging In");
+    try {
+      const result = await login(values);
+
+      if (result.success) {
+        toast.success("Login Successfull", { id: toastId });
+      }
+    } catch (error) {
+      toast.error("Login Failed", { id: toastId });
+    }
+  };
 
   return (
     <div className="max-w-md mx-auto mt-20 space-y-6">

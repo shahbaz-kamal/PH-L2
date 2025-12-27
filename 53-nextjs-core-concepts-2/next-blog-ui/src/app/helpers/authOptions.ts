@@ -9,5 +9,8 @@ export const authOptions = {
       clientSecret: envVars.GOOGLE_CLIENT_SECRET as string,
     }),
   ],
-  secret: envVars.AUTH_SECRET
+  secret: envVars.AUTH_SECRET,
+  pages:{
+    signIn:'/login'
+  }
 };

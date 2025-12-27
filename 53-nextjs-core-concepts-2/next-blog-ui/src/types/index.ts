@@ -1,3 +1,5 @@
+export * from "./auth"
+
 export interface IPost {
   id: number;
   title: string;

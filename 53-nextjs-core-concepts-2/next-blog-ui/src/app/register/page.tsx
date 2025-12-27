@@ -16,6 +16,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { register } from "@/actions/auth";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
@@ -29,9 +32,24 @@ export default function RegisterPage() {
     },
   });
 
-  function onSubmit(values: RegisterFormValues) {
+  const router = useRouter();
+  const onSubmit = async (values: RegisterFormValues) => {
     console.log(values);
-  }
+    const toastId = toast.loading("Registering....");
+
+    const result = await register(values);
+
+    if (!result.success) {
+      toast.error(result.message, { id: toastId });
+      console.log(result);
+
+      return;
+    }
+
+    toast.success("Registration successful", { id: toastId });
+    router.push("/login");
+    console.log(result.data);
+  };
 
   return (
     <div className="max-w-md mx-auto mt-20 space-y-6">
@@ -75,6 +93,19 @@ export default function RegisterPage() {
                 <FormLabel>Password</FormLabel>
                 <FormControl>
                   <Input type="password" placeholder="••••••••" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Phone</FormLabel>
+                <FormControl>
+                  <Input placeholder="+880 1799839985" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
