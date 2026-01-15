@@ -1,13 +1,20 @@
 import { Request, Response } from "express";
 import catchAsync from "../../shared/catchAsync";
 import { UserService } from "./user.service";
+import sendResponse from "../../shared/sendResponse";
+import httpStatus from "http-status-codes";
 
-const createPatient = catchAsync((req: Request, res: Response) => {
+const createPatient = catchAsync(async (req: Request, res: Response) => {
   const newUser = req.body;
   console.log(newUser);
-  const result = UserService.createPatient(newUser);
+  const result = await UserService.createPatient(newUser);
 
-  res.json(result);
+  sendResponse(res, {
+    statusCode: httpStatus.CREATED,
+    success: true,
+    message: "User Creation Successfull",
+    data: result,
+  });
 });
 
 export const UserController = { createPatient };
