@@ -7,8 +7,8 @@ import httpStatus from "http-status-codes";
 const createPatient = catchAsync(async (req: Request, res: Response) => {
   const newUser = req.body;
   console.log(newUser);
-  // const result = await UserService.createPatient(newUser);
-  const result = "hello";
+  const result = await UserService.createPatient(req);
+
   sendResponse(res, {
     statusCode: httpStatus.CREATED,
     success: true,

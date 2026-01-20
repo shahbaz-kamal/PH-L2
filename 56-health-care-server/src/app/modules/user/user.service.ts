@@ -2,30 +2,36 @@ import { ICreatePatient } from "./user.interface";
 import bcrypt from "bcryptjs";
 import { envVars } from "../../config/env";
 import { prisma } from "../../shared/prisma";
+import { Request } from "express";
+import { fileUploader } from "../../../utils/fileUploader";
 
-const createPatient = async (payload: ICreatePatient) => {
+const createPatient = async (req: Request) => {
   const hashedPassword = await bcrypt.hash(
-    payload.password,
-    Number(envVars.BCRYPT_SALT_ROUND)
+    req.body.password,
+    Number(envVars.BCRYPT_SALT_ROUND),
   );
 
-  const result = await prisma.$transaction(async (tx) => {
-    await tx.user.create({
-      data: {
-        email: payload.email,
-        password: hashedPassword,
-      },
-    });
+  if (req.file) {
+    const uploadedResult = fileUploader.uploadToCloudinary(req.file);
+    console.log(req.file);
+  }
+  // const result = await prisma.$transaction(async (tx) => {
+  //   await tx.user.create({
+  //     data: {
+  //       email: req.body.email,
+  //       password: hashedPassword,
+  //     },
+  //   });
 
-   return await tx.patient.create({
-      data: {
-        name: payload.name,
-        email: payload.email,
-      },
-    });
-  });
-  console.log("Patient-create");
-  return result
+  //   return await tx.patient.create({
+  //     data: {
+  //       name: req.body.name,
+  //       email: req.body.email,
+  //     },
+  //   });
+  // });
+  // console.log("Patient-create");
+  return req.file;
 };
 
 export const UserService = { createPatient };
