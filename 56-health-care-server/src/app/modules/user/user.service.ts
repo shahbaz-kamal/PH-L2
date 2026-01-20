@@ -12,26 +12,23 @@ const createPatient = async (req: Request) => {
   );
 
   if (req.file) {
-    const uploadedResult = fileUploader.uploadToCloudinary(req.file);
-    console.log(req.file);
+    const uploadedResult = await fileUploader.uploadToCloudinary(req.file);
+    req.body.patient.profilePhoto = uploadedResult?.secure_url;
   }
-  // const result = await prisma.$transaction(async (tx) => {
-  //   await tx.user.create({
-  //     data: {
-  //       email: req.body.email,
-  //       password: hashedPassword,
-  //     },
-  //   });
+  const result = await prisma.$transaction(async (tx) => {
+    await tx.user.create({
+      data: {
+        email: req.body.patient.email,
+        password: hashedPassword,
+      },
+    });
 
-  //   return await tx.patient.create({
-  //     data: {
-  //       name: req.body.name,
-  //       email: req.body.email,
-  //     },
-  //   });
-  // });
-  // console.log("Patient-create");
-  return req.file;
+    return await tx.patient.create({
+      data: req.body.patient,
+    });
+  });
+
+  return result;
 };
 
 export const UserService = { createPatient };

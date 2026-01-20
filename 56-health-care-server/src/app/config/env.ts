@@ -6,6 +6,11 @@ interface EnvVars {
   PORT: string;
   DATABASE_URL: string;
   BCRYPT_SALT_ROUND: string;
+  CLOUDINARY: {
+    CLOUD_NAME: string;
+    API_KEY: string;
+    API_SECRET: string;
+  };
 }
 
 const loadEnvironmentVariables = (): EnvVars => {
@@ -14,6 +19,9 @@ const loadEnvironmentVariables = (): EnvVars => {
     "PORT",
     "DATABASE_URL",
     "BCRYPT_SALT_ROUND",
+    "CLOUDINARY_CLOUD_NAME",
+    "CLOUDINARY_API_KEY",
+    "CLOUDINARY_API_SECRET",
   ];
 
   requiredVariables.forEach((key) => {
@@ -25,6 +33,11 @@ const loadEnvironmentVariables = (): EnvVars => {
     PORT: process.env.PORT as string,
     DATABASE_URL: process.env.PORT as string,
     BCRYPT_SALT_ROUND: process.env.BCRYPT_SALT_ROUND as string,
+    CLOUDINARY: {
+      CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME as string,
+      API_KEY: process.env.CLOUDINARY_API_KEY as string,
+      API_SECRET: process.env.CLOUDINARY_API_SECRET as string,
+    },
   };
 };
 
