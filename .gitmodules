@@ -4,3 +4,6 @@
 [submodule "56-care-pont-server"]
 	path = 56-care-pont-server
 	url = https://github.com/shahbaz-kamal/care-point-server.git
+[submodule "56-care-point-server"]
+	path = 56-care-point-server
+	url = https://github.com/shahbaz-kamal/care-point-server.git
